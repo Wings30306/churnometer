@@ -86,10 +86,12 @@ def DrawInputsWidgets():
 	percentageMin, percentageMax = 0.4, 2.0
 
     # we create input widgets only for 6 features	
-	col1, col2, col3, col4 = st.beta_columns(4)
-	col5, col6, col7, col8 = st.beta_columns(4)
+	col1, col2, col3 = st.beta_columns(3)
+	col4, col5, col6 = st.beta_columns(3)
 
 	# We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
+	# {'PhoneService', 'InternetService', 'PaymentMethod', 'OnlineBackup',
+	# 'MonthlyCharges', 'Contract'}
 		
 
 	# create an empty DataFrame, which will be the live data
@@ -97,6 +99,7 @@ def DrawInputsWidgets():
 	
 	# from here on we draw the widget based on the variable type (numerical or categorical)
 	# and set initial values
+	# CHURN features
 	with col1:
 		feature = "Contract"
 		st_widget = st.selectbox(
@@ -114,6 +117,7 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
+	# TENURE features
 	with col3:
 		feature = "MonthlyCharges"
 		st_widget = st.number_input(
@@ -132,6 +136,7 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
+	# CLUSTER features
 	with col5:
 		feature = "OnlineBackup"
 		st_widget = st.selectbox(
@@ -148,6 +153,6 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
-	# st.write(X_live)
+	st.write(X_live)
 
 	return X_live

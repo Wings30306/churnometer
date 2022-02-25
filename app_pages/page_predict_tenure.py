@@ -28,7 +28,7 @@ def page_predict_tenure_body():
         f"We converted the target to classes and transformed the ML task into a **classification** problem. \n"
         f"* The pipeline was tuned aiming at least 0.8 Recall on '<4 months' class, on train and test sets, "
         f"since we are interested in this project, to detect any prospect that may churn soon. "
-        f"The classifer performance was 0.8 on both sets.\n"
+        f"The classifier performance was 0.8 on both sets.\n"
         f"* We notice that '<4.0' and '+20.0' classes have reasonable levels of performance, where "
         f"'4.0 to 20.0' performance is poor. This will be a limitation of our project.")
     st.write("---")
